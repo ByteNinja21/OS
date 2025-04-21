@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import time
 
-# Global variables
 frames = []
 page_faults = 0
 frame_size = 3
