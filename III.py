@@ -115,18 +115,14 @@ def start_simulation():
 root = tk.Tk()
 root.title("Virtual Memory Simulation")
 root.geometry("900x600")
-    # Main brand color: A mid-tone blue (#3366CC) - recognizable and trustworthy
-    # White (#FFFFFF) for backgrounds
-    # Light gray (#F5F7FA) for secondary backgrounds
-    # Dark gray (#333333) for primary text
-root.configure(bg="#FFFFFF")  # White background for the whole window
-
+   
+root.configure(bg="#FFFFFF")  
 style = ttk.Style(root)
 style.theme_use("clam")
-style.configure("TLabel", foreground="#333333", background="#FFFFFF", font=("Arial", 12)) # Dark Gray text, White background
-style.configure("TEntry", fieldbackground="#F5F7FA", foreground="#333333", font=("Arial", 12), bordercolor="#505050") # Light Gray background, Dark Gray text
+style.configure("TLabel", foreground="#333333", background="#FFFFFF", font=("Arial", 12)) 
+style.configure("TEntry", fieldbackground="#F5F7FA", foreground="#333333", font=("Arial", 12), bordercolor="#505050") 
 style.configure("TButton",
-                background="#3366CC",  # Mid-tone blue
+                background="#3366CC",  
                 foreground="#FFFFFF",
                 font=("Arial", 12, "bold"),
                 borderwidth=0,
@@ -135,7 +131,7 @@ style.configure("TButton",
                 highlightthickness=2,
                 )
 style.map("TButton",
-          background=[("active", "#2851a3"), ("disabled", "#B8B8B8")],  # Darker blue on active
+          background=[("active", "#2851a3"), ("disabled", "#B8B8B8")], 
           foreground=[("disabled", "#ffffff")],
           )
 style.configure("TCombobox",
@@ -150,7 +146,7 @@ style.map("TCombobox",
           foreground=[("disabled", "#ffffff")],
           )
 
-frame = tk.Frame(root, bg="#FFFFFF") # White Frame Background
+frame = tk.Frame(root, bg="#FFFFFF") 
 frame.pack(pady=20)
 
 page_label = ttk.Label(frame, text="Page Sequence:")
@@ -175,26 +171,26 @@ start_button = ttk.Button(frame, text="Start Simulation", command=start_simulati
 start_button.grid(row=3, column=1, padx=10, pady=10, sticky="e")
 
 fig, ax = plt.subplots(figsize=(7, 4))
-fig.patch.set_facecolor("#F5F7FA") # Light Gray
-ax.set_facecolor("#F5F7FA")  # Light Gray
+fig.patch.set_facecolor("#F5F7FA")
+ax.set_facecolor("#F5F7FA")  
 canvas = FigureCanvasTkAgg(fig, master=root)
 canvas_widget = canvas.get_tk_widget()
 canvas_widget.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=(0,20), pady=(20,0))
 
-log_frame = tk.Frame(root, bg="#FFFFFF") # White
+log_frame = tk.Frame(root, bg="#FFFFFF") 
 log_frame.pack(pady=10, fill=tk.BOTH, expand=True, padx=20)
 log_text = tk.Text(log_frame, height=12, wrap=tk.WORD, font=("Courier", 10),
-                   bg="#F5F7FA", fg="#333333", insertbackground="#333333", # Light Gray , Dark Gray
+                   bg="#F5F7FA", fg="#333333", insertbackground="#333333",
                    selectbackground="#565656", selectforeground="#ffffff",
                    borderwidth=0)
 log_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 log_scroll = tk.Scrollbar(log_frame, command=log_text.yview,
-                         troughcolor="#FFFFFF",  # White
+                         troughcolor="#FFFFFF", 
                          )
 log_scroll.pack(side=tk.RIGHT, fill=tk.Y)
 log_text.config(yscrollcommand=log_scroll.set)
 style.configure("Vertical.TScrollbar",
-             background="#FFFFFF", # White
+             background="#FFFFFF", 
              troughcolor="#FFFFFF",
              arrowcolor="#ffffff",
              )
